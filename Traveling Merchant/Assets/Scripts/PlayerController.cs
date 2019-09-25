@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,40 +15,33 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rigidBody;
     public Animator animator;
 
-    void Update()
+
+    private void Update()
     {
         ProcessInput();
         Move();
         Animate();
     }
 
-    void ProcessInput()
+    private void ProcessInput()
     {
         movementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         movementSpeed = Mathf.Clamp(movementDirection.magnitude, 0.0f, 1.0f);
         movementDirection.Normalize();
     }
 
-    void Move()
+    private void Move()
     {
-        if (movementDirection.x > 0.5f || movementDirection.x < -0.5f)
-        {
-            rigidBody.velocity = new Vector2(movementDirection.x * movementSpeed * MOVEMENT_BASE_SPEED, 0f);
-        }
-        else if (movementDirection.y > 0.5f || movementDirection.y < -0.5f)
-        {
-            rigidBody.velocity = new Vector2(0f, movementDirection.y * movementSpeed * MOVEMENT_BASE_SPEED);
-        }
-        else
-        {
-            rigidBody.velocity = new Vector2(0, 0);
-        }
+        rigidBody.velocity = movementDirection * movementSpeed * MOVEMENT_BASE_SPEED;
     }
 
-    void Animate()
+    private void Animate()
     {
-        animator.SetFloat("Horizontal", movementDirection.x);
-        animator.SetFloat("Vertical", movementDirection.y);
+        if(movementDirection != Vector2.zero)
+        {
+            animator.SetFloat("Horizontal", movementDirection.x);
+            animator.SetFloat("Vertical", movementDirection.y);
+        }
         animator.SetFloat("Speed", movementSpeed);
     }
 }
