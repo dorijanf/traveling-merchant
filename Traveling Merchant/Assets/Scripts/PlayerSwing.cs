@@ -2,6 +2,7 @@
 
 public class PlayerSwing : MonoBehaviour
 {
+    [Header("Config Parameters:")]
     public LayerMask whatIsTarget;
     public Vector3 offset;
     private float timeBetweenAttacks;
