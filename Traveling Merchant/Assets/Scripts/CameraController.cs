@@ -9,7 +9,6 @@ public class CameraController : MonoBehaviour
     [Space]
     [Header("References:")]
     public Transform target;
-    
 
     private void FixedUpdate()
     {

@@ -3,45 +3,133 @@
 public class PlayerController : MonoBehaviour
 {
     [Header("Config Parameters:")]
-    public Vector2 movementDirection;
-    public float movementSpeed;
+    public LayerMask[] whatIsTarget;
+    public float offsetDistance;
+    public float degrees;
+    private float timeBetweenAttacks;
+    private Vector3 offset;
 
     [Space]
     [Header("Character Attributes:")]
-    public float MOVEMENT_BASE_SPEED = 1.0f;
+    public int damage;
+    public float boxSizeX;
+    public float boxSizeY;
+    public float startTimeBetweenAttacks;
 
     [Space]
     [Header("References:")]
-    public Rigidbody2D rigidBody;
-    public Animator animator;
+    public Transform targetPos;
+    private CheckPlayerDirection playerDir;
+    private GameObject pickedUpObject;
 
+    private void Start()
+    {
+        playerDir = GetComponent<CheckPlayerDirection>();
+    }
 
     private void Update()
     {
-        ProcessInput();
-        Move();
-        Animate();
-    }
+        ChangeRotation();
+        DebugDrawBox(targetPos.position + offset, new Vector2(boxSizeX, boxSizeY), degrees, Color.red, 0.1f);
 
-    private void ProcessInput()
-    {
-        movementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        movementSpeed = Mathf.Clamp(movementDirection.magnitude, 0.0f, 1.0f);
-        movementDirection.Normalize();
-    }
-
-    private void Move()
-    {
-        rigidBody.velocity = movementDirection * movementSpeed * MOVEMENT_BASE_SPEED;
-    }
-
-    private void Animate()
-    {
-        if(movementDirection != Vector2.zero)
+        if (timeBetweenAttacks <= 0)
         {
-            animator.SetFloat("Horizontal", movementDirection.x);
-            animator.SetFloat("Vertical", movementDirection.y);
+            Interact();
         }
-        animator.SetFloat("Speed", movementSpeed);
+        else
+        {
+            timeBetweenAttacks -= Time.deltaTime;
+        }
+    }
+
+    private void Interact()
+    {
+        if (pickedUpObject == null)
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Swing();
+            }
+            else if (Input.GetKey(KeyCode.E))
+            {
+                PickUp();
+            }
+        }
+        else 
+        {
+            if (Input.GetKey(KeyCode.F))
+            {
+                Drop();
+            }
+        }
+    }
+
+    private void Swing()
+    {
+        Collider2D[] targetsToDamage = Physics2D.OverlapBoxAll(targetPos.position + offset, new Vector2(boxSizeX, boxSizeY), degrees, whatIsTarget[0]);
+        for (int i = 0; i < targetsToDamage.Length; i++)
+        {
+            targetsToDamage[i].GetComponent<Resource>().TakeDamage(damage);
+        }
+        timeBetweenAttacks = startTimeBetweenAttacks;
+    }
+
+    private void PickUp()
+    {
+        Collider2D[] targetsToPickUp = Physics2D.OverlapBoxAll(targetPos.position + offset, new Vector2(boxSizeX, boxSizeY), degrees, whatIsTarget[1]);
+        if (targetsToPickUp.Length != 0)
+        {
+            pickedUpObject = targetsToPickUp[0].GetComponent<MoveObject>().CarryObject();
+        }
+    }
+
+    private void Drop()
+    {
+        pickedUpObject = pickedUpObject.GetComponent<MoveObject>().DropObject();
+    }
+
+    private void ChangeRotation()
+    {
+        switch (playerDir.GetDirection())
+        {
+            case CheckPlayerDirection.Direction.North:
+                offset = new Vector3(0, offsetDistance, 0);
+                degrees = 180f;
+                break;
+            case CheckPlayerDirection.Direction.West:
+                offset = new Vector3(-offsetDistance, 0, 0);
+                degrees = 270f;
+                break;
+            case CheckPlayerDirection.Direction.East:
+                offset = new Vector3(offsetDistance, 0, 0);
+                degrees = 90;
+                break;
+            case CheckPlayerDirection.Direction.South:
+                offset = new Vector3(0, -offsetDistance, 0);
+                degrees = 0;
+                break;
+        }
+    }
+
+    void DebugDrawBox(Vector2 point, Vector2 size, float angle, Color color, float duration)
+    {
+
+        var orientation = Quaternion.Euler(0, 0, angle);
+
+        // Basis vectors, half the size in each direction from the center.
+        Vector2 right = orientation * Vector2.right * size.x / 2f;
+        Vector2 up = orientation * Vector2.up * size.y / 2f;
+
+        // Four box corners.
+        var topLeft = point + up - right;
+        var topRight = point + up + right;
+        var bottomRight = point - up + right;
+        var bottomLeft = point - up - right;
+
+        // Now we've reduced the problem to drawing lines.
+        Debug.DrawLine(topLeft, topRight, color, duration);
+        Debug.DrawLine(topRight, bottomRight, color, duration);
+        Debug.DrawLine(bottomRight, bottomLeft, color, duration);
+        Debug.DrawLine(bottomLeft, topLeft, color, duration);
     }
 }

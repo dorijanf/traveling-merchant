@@ -1,14 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CheckPlayerDirection : MonoBehaviour
 {
-    private bool movingNorth;
-    private bool movingWest;
-    private bool movingEast;
-    private bool movingSouth;
+    public enum Direction { North, East, South, West };
+    private Direction dir;
 
+    [Space]
     [Header("References:")]
     public Animator animator;
 
@@ -26,54 +23,27 @@ public class CheckPlayerDirection : MonoBehaviour
 
         if (horizontalValue > 0)
         {
-            movingWest = false;
-            movingNorth = false;
-            movingSouth = false;
-            movingEast = true;
+            dir = Direction.East;
         }
         else if (horizontalValue < 0)
         {
-            movingWest = true;
-            movingNorth = false;
-            movingSouth = false;
-            movingEast = false;
+            dir = Direction.West;
         }
         else
         {
             if (verticalValue > 0)
             {
-                movingWest = false;
-                movingNorth = true;
-                movingSouth = false;
-                movingEast = false;
+                dir = Direction.North;
             }
             else
             {
-                movingWest = false;
-                movingNorth = false;
-                movingSouth = true;
-                movingEast = false;
+                dir = Direction.South;
             }
         }
     }
 
-    public bool IsMovingNorth()
+    public Direction GetDirection()
     {
-        return movingNorth;
-    }
-
-    public bool IsMovingWest()
-    {
-        return movingWest;
-    }
-
-    public bool IsMovingEast()
-    {
-        return movingEast;
-    }
-
-    public bool IsMovingSouth()
-    {
-        return movingSouth;
+        return dir;
     }
 }
