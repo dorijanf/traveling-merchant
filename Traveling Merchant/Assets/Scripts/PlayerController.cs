@@ -1,5 +1,10 @@
 ﻿using UnityEngine;
 
+/*
+ * PlayerController script defines player behaviour. It defines when the player can interact with an object
+ * and in what way it can interact with it. Currently the script defines Swing, Drop and Pickup functions.
+ */
+
 public class PlayerController : MonoBehaviour
 {
     [Header("Config Parameters:")]
@@ -21,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public Transform targetPos;
     private CheckPlayerDirection playerDir;
     private GameObject pickedUpObject;
+    public GameObject cart;
 
     private void Start()
     {
@@ -30,7 +36,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         ChangeRotation();
-        DebugDrawBox(targetPos.position + offset, new Vector2(boxSizeX, boxSizeY), degrees, Color.red, 0.1f);
+        //DebugDrawBox(targetPos.position + offset, new Vector2(boxSizeX, boxSizeY), degrees, Color.red, 0.1f);
 
         if (timeBetweenAttacks <= 0)
         {
@@ -111,6 +117,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Only purpose of this function is debugging
+    // The function displays the hitbox of the player in the scene view
+    // Used for testing only
+    /*
     void DebugDrawBox(Vector2 point, Vector2 size, float angle, Color color, float duration)
     {
 
@@ -132,4 +142,5 @@ public class PlayerController : MonoBehaviour
         Debug.DrawLine(bottomRight, bottomLeft, color, duration);
         Debug.DrawLine(bottomLeft, topLeft, color, duration);
     }
+    */
 }

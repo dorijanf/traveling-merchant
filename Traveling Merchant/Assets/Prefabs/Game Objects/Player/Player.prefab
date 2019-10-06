@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 204878659014614913}
   - component: {fileID: 204878659014614914}
   m_Layer: 0
-  m_Name: Player Sprites
+  m_Name: Sprites
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 1512386758}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,6 +202,7 @@ MonoBehaviour:
   boxSizeY: 0.2
   startTimeBetweenAttacks: 0.5
   targetPos: {fileID: 5723023565198460414}
+  cart: {fileID: 0}
 --- !u!1 &204878660358369357
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +276,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.1, y: 0.32}
+  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

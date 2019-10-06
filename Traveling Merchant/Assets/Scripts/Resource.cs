@@ -7,7 +7,7 @@ public class Resource : MonoBehaviour
 
     [Space]
     [Header("References:")]
-    public GameObject nugget;
+    public GameObject item;
 
     private void Update()
     {
@@ -17,7 +17,7 @@ public class Resource : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health = health - damage;
-        Instantiate(nugget, transform.position, Quaternion.identity);
+        Instantiate(item, transform.position, Quaternion.identity);
     }
 
     public void DestroyResource()

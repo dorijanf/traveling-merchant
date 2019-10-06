@@ -94,8 +94,8 @@ GameObject:
   - component: {fileID: 1595132787822047992}
   - component: {fileID: 3116442196262276507}
   m_Layer: 9
-  m_Name: Nugget
-  m_TagString: Untagged
+  m_Name: Copper Nugget
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,8 +194,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 2903172452550111935}
-  parent: {fileID: 635461364457048121, guid: f81cccdc6d66fb14e9f892be4368e50d, type: 3}
-  player: {fileID: 204878659335177143, guid: 040dbf5a26a34dd45ba9b1bdf91d4c0b, type: 3}
   boxCollider: {fileID: 1858462902}
   speed: 0.7
 --- !u!114 &3116442196262276507
@@ -212,6 +210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 2903172452550111935}
   sortingGroup: {fileID: 6411365049163589204}
+  item: {fileID: 11400000, guid: 8626d4f9fb73b524fbeb29f08179626d, type: 2}
+  boxCollider: {fileID: 1858462902}
 --- !u!1 &2592479925213375162
 GameObject:
   m_ObjectHideFlags: 0
