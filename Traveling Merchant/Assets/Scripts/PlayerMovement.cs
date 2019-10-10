@@ -18,9 +18,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        ProcessInput();
-        Move();
-        Animate();
+        if (animator.GetFloat("IsSwinging") > 0)
+        {
+            rigidBody.velocity = Vector2.zero;
+        }
+        else
+        {
+            ProcessInput();
+            Move();
+            Animate();
+        }
     }
 
     private void ProcessInput()

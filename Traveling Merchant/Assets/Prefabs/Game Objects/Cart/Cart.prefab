@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cartUI: {fileID: 0}
-  space: 20
+  space: 15
   items: []
 --- !u!50 &137643002
 Rigidbody2D:

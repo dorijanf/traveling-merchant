@@ -21,13 +21,13 @@ public class Cart : MonoBehaviour
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
     public GameObject cartUI;
-    public int space = 20;
+    public int space = 15;
 
     public List<Item> items = new List<Item>();
 
     public bool Add(Item item)
     {
-        if(items.Count >= space)
+        if (items.Count >= space)
         {
             Debug.Log("Not enough room.");
             return false;
@@ -58,7 +58,7 @@ public class Cart : MonoBehaviour
         }
         if (collision.gameObject.tag == "Item")
         {
-                collision.gameObject.GetComponent<MoveObject>().StoreItem();
+            collision.gameObject.GetComponent<MoveItem>().StoreItem();
         }
     }
 

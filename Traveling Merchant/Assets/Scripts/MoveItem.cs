@@ -7,13 +7,14 @@ using UnityEngine;
  * Kinematic and its sorting order changes. When the object drops it reverts all these attributes to their original state
  * and lastly the StoreItem function defines what happens when the player drops the item inside the cart collider i.e. stores it.
  */
-public class MoveObject : MonoBehaviour
+
+public class MoveItem : MonoBehaviour
 {
     [Header("References:")]
     public Rigidbody2D rigidBody;
     public SortingGroup sortingGroup;
     public Item item;
-    public BoxCollider2D boxCollider;
+    public Collider2D polyCollider;
 
     private Transform carryPosition;
 
@@ -26,19 +27,19 @@ public class MoveObject : MonoBehaviour
     {
         Debug.Log("Item " + item.name + " picked up.");
         rigidBody.bodyType = RigidbodyType2D.Kinematic;
+        polyCollider.enabled = false;
         gameObject.transform.position = carryPosition.position;
         gameObject.transform.SetParent(carryPosition.transform);
-        boxCollider.enabled = false;
         sortingGroup.sortingOrder = sortingGroup.sortingOrder + 1;
         return gameObject;
     }
 
-    public GameObject DropObject()
+    public GameObject DropObject(Vector2 dropPosition)
     {
         rigidBody.bodyType = RigidbodyType2D.Static;
+        polyCollider.enabled = true;
         gameObject.transform.parent = null;
-        gameObject.transform.position = carryPosition.position;
-        boxCollider.enabled = true;
+        gameObject.transform.position = dropPosition;
         sortingGroup.sortingOrder = 1;
         return null;
     }

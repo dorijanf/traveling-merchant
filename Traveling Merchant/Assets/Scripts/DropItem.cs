@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class ItemDrop : MonoBehaviour
+public class DropItem : MonoBehaviour
 {
     [Header("References:")]
     public Rigidbody2D rigidBody;
-    public Collider2D boxCollider;
+    public Collider2D polyCollider;
 
     [Space]
     [Header("Config Parameters:")]
@@ -15,7 +15,7 @@ public class ItemDrop : MonoBehaviour
     {
         transform.SetParent(null);
         StartCoroutine("AddGravity");
-        boxCollider.enabled = false;
+        polyCollider.enabled = false;
     }
 
     private IEnumerator AddGravity()
@@ -42,6 +42,6 @@ public class ItemDrop : MonoBehaviour
     private void StopForce(Vector3 flightDirection)
     {
         rigidBody.bodyType = RigidbodyType2D.Static;
-        boxCollider.enabled = true;
+        polyCollider.enabled = true;
     }
 }

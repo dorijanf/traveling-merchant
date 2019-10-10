@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask[] whatIsTarget;
     public float offsetDistance;
     public float degrees;
+    public Animator animator;
     private float timeBetweenAttacks;
     private Vector3 offset;
 
@@ -20,13 +21,13 @@ public class PlayerController : MonoBehaviour
     public float boxSizeX;
     public float boxSizeY;
     public float startTimeBetweenAttacks;
+    public float isSwinging;
 
     [Space]
     [Header("References:")]
     public Transform targetPos;
     private CheckPlayerDirection playerDir;
     private GameObject pickedUpObject;
-    public GameObject cart;
 
     private void Start()
     {
@@ -35,8 +36,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        animator.SetFloat("IsSwinging", isSwinging);
         ChangeRotation();
-        //DebugDrawBox(targetPos.position + offset, new Vector2(boxSizeX, boxSizeY), degrees, Color.red, 0.1f);
+        DebugDrawBox(targetPos.position + offset, new Vector2(boxSizeX, boxSizeY), degrees, Color.red, 0.1f);
 
         if (timeBetweenAttacks <= 0)
         {
@@ -54,9 +56,15 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Space))
             {
+                isSwinging = 1f;
                 Swing();
             }
-            else if (Input.GetKey(KeyCode.E))
+            else
+            {
+                isSwinging = 0.0f;
+            }
+
+            if(Input.GetKey(KeyCode.E) && isSwinging == 0.0f)
             {
                 PickUp();
             }
@@ -85,13 +93,13 @@ public class PlayerController : MonoBehaviour
         Collider2D[] targetsToPickUp = Physics2D.OverlapBoxAll(targetPos.position + offset, new Vector2(boxSizeX, boxSizeY), degrees, whatIsTarget[1]);
         if (targetsToPickUp.Length != 0)
         {
-            pickedUpObject = targetsToPickUp[0].GetComponent<MoveObject>().CarryObject();
+            pickedUpObject = targetsToPickUp[0].GetComponent<MoveItem>().CarryObject();
         }
     }
 
     private void Drop()
     {
-        pickedUpObject = pickedUpObject.GetComponent<MoveObject>().DropObject();
+        pickedUpObject = pickedUpObject.GetComponent<MoveItem>().DropObject(targetPos.position + offset);
     }
 
     private void ChangeRotation()
@@ -120,10 +128,8 @@ public class PlayerController : MonoBehaviour
     // Only purpose of this function is debugging
     // The function displays the hitbox of the player in the scene view
     // Used for testing only
-    /*
     void DebugDrawBox(Vector2 point, Vector2 size, float angle, Color color, float duration)
     {
-
         var orientation = Quaternion.Euler(0, 0, angle);
 
         // Basis vectors, half the size in each direction from the center.
@@ -142,5 +148,4 @@ public class PlayerController : MonoBehaviour
         Debug.DrawLine(bottomRight, bottomLeft, color, duration);
         Debug.DrawLine(bottomLeft, topLeft, color, duration);
     }
-    */
 }

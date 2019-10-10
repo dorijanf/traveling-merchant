@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 204878659335177145}
   - component: {fileID: 1293255461}
   - component: {fileID: 1512386758}
+  - component: {fileID: 342755891}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -161,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementDirection: {x: 0, y: 0}
-  movementSpeed: 1
+  movementSpeed: 0
   MOVEMENT_BASE_SPEED: 1
   rigidBody: {fileID: 204878659335177146}
   animator: {fileID: 204878659335177147}
@@ -195,14 +196,63 @@ MonoBehaviour:
     m_Bits: 256
   - serializedVersion: 2
     m_Bits: 512
-  offsetDistance: 0.1
+  offsetDistance: 0.15
   degrees: 0
+  animator: {fileID: 204878659335177147}
   damage: 1
-  boxSizeX: 0.2
-  boxSizeY: 0.2
+  boxSizeX: 0.1
+  boxSizeY: 0.1
   startTimeBetweenAttacks: 0.5
+  isSwinging: 0
   targetPos: {fileID: 5723023565198460414}
-  cart: {fileID: 0}
+--- !u!212 &342755891
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204878659335177143}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.32, y: 0.32}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &204878660358369357
 GameObject:
   m_ObjectHideFlags: 0
