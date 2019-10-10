@@ -5,7 +5,7 @@ public class DropItem : MonoBehaviour
 {
     [Header("References:")]
     public Rigidbody2D rigidBody;
-    public Collider2D polyCollider;
+    public Collider2D circleCollider;
 
     [Space]
     [Header("Config Parameters:")]
@@ -15,7 +15,7 @@ public class DropItem : MonoBehaviour
     {
         transform.SetParent(null);
         StartCoroutine("AddGravity");
-        polyCollider.enabled = false;
+        circleCollider.enabled = false;
     }
 
     private IEnumerator AddGravity()
@@ -42,6 +42,6 @@ public class DropItem : MonoBehaviour
     private void StopForce(Vector3 flightDirection)
     {
         rigidBody.bodyType = RigidbodyType2D.Static;
-        polyCollider.enabled = true;
+        circleCollider.enabled = true;
     }
 }

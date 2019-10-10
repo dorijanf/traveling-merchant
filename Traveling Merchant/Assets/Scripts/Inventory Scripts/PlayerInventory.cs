@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Cart : MonoBehaviour
+public class PlayerInventory : MonoBehaviour
 {
     #region Singleton
-    public static Cart instance;
+    public static PlayerInventory instance;
 
     private void Awake()
     {
@@ -20,19 +21,18 @@ public class Cart : MonoBehaviour
 
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
-    public GameObject cartUI;
-    public int space = 15;
+    public int space;
 
-    public List<Item> items = new List<Item>();
+    public List<Item> playerItems = new List<Item>();
 
     public bool Add(Item item)
     {
-        if (items.Count >= space)
+        if (playerItems.Count >= space)
         {
             Debug.Log("Not enough room.");
             return false;
         }
-        items.Add(item);
+        playerItems.Add(item);
 
         if (onItemChangedCallback != null)
         {
@@ -43,27 +43,11 @@ public class Cart : MonoBehaviour
 
     public void Remove(Item item)
     {
-        items.Remove(item);
+        playerItems.Remove(item);
         if (onItemChangedCallback != null)
         {
             onItemChangedCallback.Invoke();
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            cartUI.SetActive(true);
-        }
-        if (collision.gameObject.tag == "Item")
-        {
-            collision.gameObject.GetComponent<MoveItem>().StoreItem();
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        cartUI.SetActive(false);
-    }
 }
+

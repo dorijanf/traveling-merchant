@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetFloat("IsSwinging", isSwinging);
         ChangeRotation();
-        DebugDrawBox(targetPos.position + offset, new Vector2(boxSizeX, boxSizeY), degrees, Color.red, 0.1f);
+        //DebugDrawBox(targetPos.position + offset, new Vector2(boxSizeX, boxSizeY), degrees, Color.red, 0.1f);
 
         if (timeBetweenAttacks <= 0)
         {
@@ -52,29 +52,18 @@ public class PlayerController : MonoBehaviour
 
     private void Interact()
     {
-        if (pickedUpObject == null)
+        if (Input.GetKey(KeyCode.Space))
         {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                isSwinging = 1f;
-                Swing();
-            }
-            else
-            {
-                isSwinging = 0.0f;
-            }
-
-            if(Input.GetKey(KeyCode.E) && isSwinging == 0.0f)
-            {
-                PickUp();
-            }
+            isSwinging = 1f;
+            Swing();
         }
-        else 
+        else
         {
-            if (Input.GetKey(KeyCode.F))
-            {
-                Drop();
-            }
+            isSwinging = 0.0f;
+        }
+        if (Input.GetKey(KeyCode.E) && isSwinging == 0.0f)
+        {
+            InteractWith();
         }
     }
 
@@ -88,18 +77,20 @@ public class PlayerController : MonoBehaviour
         timeBetweenAttacks = startTimeBetweenAttacks;
     }
 
-    private void PickUp()
+    private void InteractWith()
     {
         Collider2D[] targetsToPickUp = Physics2D.OverlapBoxAll(targetPos.position + offset, new Vector2(boxSizeX, boxSizeY), degrees, whatIsTarget[1]);
         if (targetsToPickUp.Length != 0)
         {
-            pickedUpObject = targetsToPickUp[0].GetComponent<MoveItem>().CarryObject();
+            if (targetsToPickUp[0].gameObject.layer == LayerMask.NameToLayer("Item"))
+            {
+                targetsToPickUp[0].gameObject.GetComponent<MoveItem>().PickUp();
+            }
+            else if(targetsToPickUp[0].gameObject.layer == LayerMask.NameToLayer("NPC"))
+            {
+                Debug.Log("Talking to NPC.");
+            }
         }
-    }
-
-    private void Drop()
-    {
-        pickedUpObject = pickedUpObject.GetComponent<MoveItem>().DropObject(targetPos.position + offset);
     }
 
     private void ChangeRotation()
@@ -128,6 +119,7 @@ public class PlayerController : MonoBehaviour
     // Only purpose of this function is debugging
     // The function displays the hitbox of the player in the scene view
     // Used for testing only
+    /*
     void DebugDrawBox(Vector2 point, Vector2 size, float angle, Color color, float duration)
     {
         var orientation = Quaternion.Euler(0, 0, angle);
@@ -148,4 +140,5 @@ public class PlayerController : MonoBehaviour
         Debug.DrawLine(bottomRight, bottomLeft, color, duration);
         Debug.DrawLine(bottomLeft, topLeft, color, duration);
     }
+    */
 }

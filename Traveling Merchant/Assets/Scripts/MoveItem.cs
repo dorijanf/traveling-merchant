@@ -1,56 +1,29 @@
-﻿using UnityEngine.Rendering;
-using UnityEngine;
-
-/*
- * MoveObject script defines the behavior of objects when they are being moved via the PickUp and Drop functions.
- * When the objects are picked up they loose their collider, their parent the rigidbody changes its type from Static to 
- * Kinematic and its sorting order changes. When the object drops it reverts all these attributes to their original state
- * and lastly the StoreItem function defines what happens when the player drops the item inside the cart collider i.e. stores it.
- */
+﻿using UnityEngine;
 
 public class MoveItem : MonoBehaviour
 {
     [Header("References:")]
     public Rigidbody2D rigidBody;
-    public SortingGroup sortingGroup;
     public Item item;
-    public Collider2D polyCollider;
-
-    private Transform carryPosition;
 
     private void Start()
     {
-        carryPosition = GameObject.Find("Carry Position").transform;
+
     }
 
-    public GameObject CarryObject()
+    public void PickUp()
     {
         Debug.Log("Item " + item.name + " picked up.");
-        rigidBody.bodyType = RigidbodyType2D.Kinematic;
-        polyCollider.enabled = false;
-        gameObject.transform.position = carryPosition.position;
-        gameObject.transform.SetParent(carryPosition.transform);
-        sortingGroup.sortingOrder = sortingGroup.sortingOrder + 1;
-        return gameObject;
-    }
-
-    public GameObject DropObject(Vector2 dropPosition)
-    {
-        rigidBody.bodyType = RigidbodyType2D.Static;
-        polyCollider.enabled = true;
-        gameObject.transform.parent = null;
-        gameObject.transform.position = dropPosition;
-        sortingGroup.sortingOrder = 1;
-        return null;
-    }
-
-    public void StoreItem()
-    {
-        Debug.Log("Item " + item.name + " stored.");
-        bool wasPickedUp = Cart.instance.Add(item);
+        bool wasPickedUp = PlayerInventory.instance.Add(item);
         if (wasPickedUp)
         {
             Destroy(gameObject);
         }
+    }
+
+    public GameObject DropObject(Vector2 dropPosition)
+    {
+        //DROP THE ITEM AT A LOCATION
+        return null;
     }
 }
