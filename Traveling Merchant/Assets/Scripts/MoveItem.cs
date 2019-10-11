@@ -6,11 +6,6 @@ public class MoveItem : MonoBehaviour
     public Rigidbody2D rigidBody;
     public Item item;
 
-    private void Start()
-    {
-
-    }
-
     public void PickUp()
     {
         Debug.Log("Item " + item.name + " picked up.");
