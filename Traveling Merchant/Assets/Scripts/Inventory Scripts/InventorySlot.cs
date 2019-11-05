@@ -1,14 +1,20 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class CartInventorySlot : MonoBehaviour
+public class InventorySlot : MonoBehaviour
 {
     [Space]
     [Header("References:")]
     public Image icon;
     public Button removeButton;
+    public Inventory inventory;
     private Item item;
-    
+
+    private void Start()
+    {
+        inventory = GetComponent<Inventory>();
+    }
+
     public void AddItem(Item newItem)
     {
         item = newItem;
@@ -27,6 +33,6 @@ public class CartInventorySlot : MonoBehaviour
 
     public void OnRemoveButton()
     {
-        CartInventory.instance.Remove(item);
+        inventory.Remove(item);
     }
 }

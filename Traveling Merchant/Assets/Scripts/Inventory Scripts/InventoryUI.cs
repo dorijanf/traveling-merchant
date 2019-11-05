@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 
-public class PlayerInventoryUI : MonoBehaviour
+public class InventoryUI : MonoBehaviour
 {
     public Transform itemsParent;
-    PlayerInventory inventory;
-    PlayerInventorySlot[] inventorySlots;
+    private Inventory inventory;
+    private InventorySlot[] inventorySlots;
     // Start is called before the first frame update
     void Start()
     {
-        inventory = PlayerInventory.instance;
+        inventory = GetComponent<Inventory>();
         inventory.onItemChangedCallback += UpdateUI;
-        inventorySlots = itemsParent.GetComponentsInChildren<PlayerInventorySlot>();
+        inventorySlots = itemsParent.GetComponentsInChildren<InventorySlot>();
     }
 
     void UpdateUI()
