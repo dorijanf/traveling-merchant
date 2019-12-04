@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54fc4b27f135d9e4ab76981753936523, type: 3}
+  m_Name: Sawmill
+  m_EditorClassIdentifier: 
+  name: Lumber
+  cost: 1000
+  resource1: {fileID: 0}
+  resource2: {fileID: 0}
+  resource3: {fileID: 0}
+  resourceProduction0: 000000000000000000000000
+  resourceProduction1: 020000000000000000000000
+  resourceProduction2: 040000000200000001000000
+  resourceProduction3: 080000000400000002000000
+  resourceName1: Maple
+  resourceName2: Juniper
+  resourceName3: Oak
+  buildingSprite:
+  - {fileID: 21300000, guid: fc3b30ab05c9f8842b1e6ea41140dd49, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
-  item: {fileID: 1855620497192195185, guid: b1e1dddf49e58f94a8c29c407344b32c, type: 3}
+  item: {fileID: 8857115175609199883, guid: 827dc457d64694c4fb4df9a0ffd707fd, type: 3}
 --- !u!60 &1638739190
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -189,7 +189,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bc71c68723ac49649bafe160d3edbe2a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c1ebfee9a7667314cab2393164348dc4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
