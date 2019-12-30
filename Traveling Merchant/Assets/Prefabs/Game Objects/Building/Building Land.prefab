@@ -307,6 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f7b8c3aee259144d99b8cbc913298af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 2750076093733026196}
   isNearObject: {fileID: 2089053680}
   buildingDescription: {fileID: 4585778096286089503}
 --- !u!114 &2750076093733026196
@@ -324,5 +325,3 @@ MonoBehaviour:
   inventoryId: 0
   itemDatabase: {fileID: 0}
   inventoryUI: {fileID: 0}
-  inventoryItem: {fileID: 5714550708129472289, guid: 6b55abf4081ef7042a4a39a3d9906e01,
-    type: 3}

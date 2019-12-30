@@ -14,6 +14,7 @@ public class AssignBuilding : MonoBehaviour
     public Text dailyIncome1;
     public Text dailyIncome2;
     public Text dailyIncome3;
+    public Text upgradePrice;
 
     private void Start()
     {
@@ -31,5 +32,6 @@ public class AssignBuilding : MonoBehaviour
         dailyIncome1.text = InventoryDatabase.inventory[inventoryUI.inventoryId].gameObject.GetComponent<BuildingDescription>().resourceProduction[0].ToString();
         dailyIncome2.text = InventoryDatabase.inventory[inventoryUI.inventoryId].gameObject.GetComponent<BuildingDescription>().resourceProduction[1].ToString();
         dailyIncome3.text = InventoryDatabase.inventory[inventoryUI.inventoryId].gameObject.GetComponent<BuildingDescription>().resourceProduction[2].ToString();
+        upgradePrice.text = InventoryDatabase.inventory[inventoryUI.inventoryId].gameObject.GetComponent<BuildingDescription>().buildingCost.ToString();
     }
 }

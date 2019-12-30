@@ -1,5 +1,79 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &200821043599032215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3128946000700135546}
+  - component: {fileID: 338087045708377958}
+  - component: {fileID: 4342371904782558279}
+  m_Layer: 5
+  m_Name: Gold image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3128946000700135546
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200821043599032215}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8737192815646413996}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -123, y: -0.000005722}
+  m_SizeDelta: {x: 51, y: 49.3}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &338087045708377958
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200821043599032215}
+  m_CullTransparentMesh: 0
+--- !u!114 &4342371904782558279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200821043599032215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: c97f3f85c63583149ba9315c3d0fb920, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
 --- !u!1 &1024850074245607567
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,6 +106,7 @@ RectTransform:
   - {fileID: 8655891657139843640}
   - {fileID: 619451258510817864}
   - {fileID: 406129304655147077}
+  - {fileID: 8737192815646413996}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -89,7 +164,7 @@ GameObject:
   - component: {fileID: 2108587537756454835}
   - component: {fileID: 7063536331409424795}
   m_Layer: 5
-  m_Name: Resource Production Number (1)
+  m_Name: Resource Production Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,6 +231,85 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 25
+--- !u!1 &2201385424075999241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1297863594584293195}
+  - component: {fileID: 7155656333865379429}
+  - component: {fileID: 9175533794410631705}
+  m_Layer: 5
+  m_Name: Upgrade amount
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1297863594584293195
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2201385424075999241}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8737192815646413996}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &7155656333865379429
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2201385424075999241}
+  m_CullTransparentMesh: 0
+--- !u!114 &9175533794410631705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2201385424075999241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 18ddf6ac0e61e1041b00998bb44345f3, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
 --- !u!1 &2487170398065161740
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,7 +322,7 @@ GameObject:
   - component: {fileID: 7981763632646445694}
   - component: {fileID: 4596062533167152160}
   m_Layer: 5
-  m_Name: Resource Production (1)
+  m_Name: Resource Production
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,9 +379,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 18ddf6ac0e61e1041b00998bb44345f3, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_BestFit: 1
+    m_MinSize: 1
+    m_MaxSize: 15
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -383,9 +537,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 18ddf6ac0e61e1041b00998bb44345f3, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_BestFit: 1
+    m_MinSize: 1
+    m_MaxSize: 15
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -393,6 +547,43 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Daily income
+--- !u!1 &7224627771029873152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8737192815646413996}
+  m_Layer: 5
+  m_Name: Upgrade price
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8737192815646413996
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7224627771029873152}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3128946000700135546}
+  - {fileID: 1297863594584293195}
+  m_Father: {fileID: 2391129977995109435}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.62496, y: -157.3}
+  m_SizeDelta: {x: 324.75, y: 57.8}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7836863589983419582
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,9 +653,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 18ddf6ac0e61e1041b00998bb44345f3, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_BestFit: 1
+    m_MinSize: 1
+    m_MaxSize: 15
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -541,9 +732,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 18ddf6ac0e61e1041b00998bb44345f3, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_BestFit: 1
+    m_MinSize: 1
+    m_MaxSize: 15
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -691,22 +882,22 @@ PrefabInstance:
     - target: {fileID: 8891769143251557888, guid: f7eda3af8cd2ab246bc23fd2ea765600,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -28
+      value: -29.5
       objectReference: {fileID: 0}
     - target: {fileID: 8891769143251557888, guid: f7eda3af8cd2ab246bc23fd2ea765600,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 25
+      value: 24.5
       objectReference: {fileID: 0}
     - target: {fileID: 8891769143251557888, guid: f7eda3af8cd2ab246bc23fd2ea765600,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 140
+      value: 161
       objectReference: {fileID: 0}
     - target: {fileID: 8891769143251557888, guid: f7eda3af8cd2ab246bc23fd2ea765600,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 35
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 2245509369844078693, guid: f7eda3af8cd2ab246bc23fd2ea765600,
         type: 3}
@@ -726,18 +917,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807750158793180088, guid: f7eda3af8cd2ab246bc23fd2ea765600,
         type: 3}
-      propertyPath: m_Text
-      value: 'Copper Ore
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7807750158793180088, guid: f7eda3af8cd2ab246bc23fd2ea765600,
-        type: 3}
-      propertyPath: m_FontData.m_HorizontalOverflow
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7807750158793180088, guid: f7eda3af8cd2ab246bc23fd2ea765600,
-        type: 3}
       propertyPath: m_FontData.m_VerticalOverflow
       value: 1
       objectReference: {fileID: 0}
@@ -746,8 +925,14 @@ PrefabInstance:
       propertyPath: m_FontData.m_LineSpacing
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3802635972098248273, guid: f7eda3af8cd2ab246bc23fd2ea765600, type: 3}
+    - target: {fileID: 7807750158793180088, guid: f7eda3af8cd2ab246bc23fd2ea765600,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Copper Ore
+
+'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7eda3af8cd2ab246bc23fd2ea765600, type: 3}
 --- !u!224 &619451258510817864 stripped
 RectTransform:
@@ -895,22 +1080,22 @@ PrefabInstance:
     - target: {fileID: 8891769143251557888, guid: f7eda3af8cd2ab246bc23fd2ea765600,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -28
+      value: -29.5
       objectReference: {fileID: 0}
     - target: {fileID: 8891769143251557888, guid: f7eda3af8cd2ab246bc23fd2ea765600,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 25
+      value: 24.5
       objectReference: {fileID: 0}
     - target: {fileID: 8891769143251557888, guid: f7eda3af8cd2ab246bc23fd2ea765600,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 140
+      value: 161
       objectReference: {fileID: 0}
     - target: {fileID: 8891769143251557888, guid: f7eda3af8cd2ab246bc23fd2ea765600,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 35
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 2245509369844078693, guid: f7eda3af8cd2ab246bc23fd2ea765600,
         type: 3}
@@ -930,18 +1115,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807750158793180088, guid: f7eda3af8cd2ab246bc23fd2ea765600,
         type: 3}
-      propertyPath: m_Text
-      value: 'Copper Ore
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7807750158793180088, guid: f7eda3af8cd2ab246bc23fd2ea765600,
-        type: 3}
-      propertyPath: m_FontData.m_HorizontalOverflow
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7807750158793180088, guid: f7eda3af8cd2ab246bc23fd2ea765600,
-        type: 3}
       propertyPath: m_FontData.m_VerticalOverflow
       value: 1
       objectReference: {fileID: 0}
@@ -952,11 +1125,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807750158793180088, guid: f7eda3af8cd2ab246bc23fd2ea765600,
         type: 3}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
+      propertyPath: m_Text
+      value: 'Copper Ore
+
+'
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3802635972098248273, guid: f7eda3af8cd2ab246bc23fd2ea765600, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7eda3af8cd2ab246bc23fd2ea765600, type: 3}
 --- !u!224 &406129304655147077 stripped
 RectTransform:
@@ -1104,22 +1278,22 @@ PrefabInstance:
     - target: {fileID: 8891769143251557888, guid: f7eda3af8cd2ab246bc23fd2ea765600,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -28
+      value: -29.5
       objectReference: {fileID: 0}
     - target: {fileID: 8891769143251557888, guid: f7eda3af8cd2ab246bc23fd2ea765600,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 25
+      value: 24.5
       objectReference: {fileID: 0}
     - target: {fileID: 8891769143251557888, guid: f7eda3af8cd2ab246bc23fd2ea765600,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 140
+      value: 161
       objectReference: {fileID: 0}
     - target: {fileID: 8891769143251557888, guid: f7eda3af8cd2ab246bc23fd2ea765600,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 35
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 2245509369844078693, guid: f7eda3af8cd2ab246bc23fd2ea765600,
         type: 3}
@@ -1127,6 +1301,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: c1ebfee9a7667314cab2393164348dc4,
         type: 3}
+    - target: {fileID: 7807750158793180088, guid: f7eda3af8cd2ab246bc23fd2ea765600,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7807750158793180088, guid: f7eda3af8cd2ab246bc23fd2ea765600,
         type: 3}
       propertyPath: m_FontData.m_MinSize
@@ -1139,19 +1318,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807750158793180088, guid: f7eda3af8cd2ab246bc23fd2ea765600,
         type: 3}
-      propertyPath: m_Text
-      value: 'Copper
-
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7807750158793180088, guid: f7eda3af8cd2ab246bc23fd2ea765600,
-        type: 3}
-      propertyPath: m_FontData.m_HorizontalOverflow
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7807750158793180088, guid: f7eda3af8cd2ab246bc23fd2ea765600,
-        type: 3}
       propertyPath: m_FontData.m_VerticalOverflow
       value: 1
       objectReference: {fileID: 0}
@@ -1160,8 +1326,15 @@ PrefabInstance:
       propertyPath: m_FontData.m_LineSpacing
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3802635972098248273, guid: f7eda3af8cd2ab246bc23fd2ea765600, type: 3}
+    - target: {fileID: 7807750158793180088, guid: f7eda3af8cd2ab246bc23fd2ea765600,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Copper
+
+
+'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7eda3af8cd2ab246bc23fd2ea765600, type: 3}
 --- !u!224 &8655891657139843640 stripped
 RectTransform:

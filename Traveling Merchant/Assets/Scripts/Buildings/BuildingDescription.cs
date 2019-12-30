@@ -40,6 +40,7 @@ public class BuildingDescription : MonoBehaviour
     {
         buildingLevel += 1;
         buildingSprite = building.buildingSprite[buildingLevel];
+        spriteRenderer.sprite = buildingSprite;
         resourceProduction = resourceProductionList[buildingLevel];
     }
 }

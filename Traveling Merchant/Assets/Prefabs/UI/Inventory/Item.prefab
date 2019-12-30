@@ -169,5 +169,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 2829742132648660311}
   amount: 1
-  enterAmount: {fileID: 728636855633262030, guid: db5f62b6e7a4c0b439ab4ec4daa8c74d,
+  enterAmount: {fileID: 6536865411276222647, guid: db5f62b6e7a4c0b439ab4ec4daa8c74d,
     type: 3}

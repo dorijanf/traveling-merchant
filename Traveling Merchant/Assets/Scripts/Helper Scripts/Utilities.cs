@@ -7,6 +7,12 @@ using UnityEngine;
 
 public static class Utilities
 {
+    public static Rect RectTransformToScreenSpace(RectTransform transform)
+    {
+        Vector2 size = Vector2.Scale(transform.rect.size, transform.lossyScale);
+        return new Rect((Vector2)transform.position - (size * 0.5f), size);
+    }
+
     public static void LookAt2D(this Transform transform, Vector2 target)
     {
         Vector2 current = transform.position;

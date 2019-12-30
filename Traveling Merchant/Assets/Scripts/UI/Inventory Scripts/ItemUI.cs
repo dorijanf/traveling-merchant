@@ -8,7 +8,6 @@ public class ItemUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
     public Item item;
     public Text text;
     public int amount;
-    public EnterAmount enterAmount;
     private Image spriteImage;
     private ItemUI selectedItem;
     private Tooltip tooltip;
@@ -23,8 +22,6 @@ public class ItemUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
         selectedItem = GameObject.Find("SelectedItem").GetComponent<ItemUI>();
         tooltip = GameObject.Find("Tooltip").GetComponent<Tooltip>();
         dropSpace = GameObject.Find("DropSpace");
-
-        //inventoryId = transform.parent.parent.parent.GetComponent<InventoryUI>().inventoryId;
     }
 
     public ItemUI(Item item, int amount)
@@ -78,7 +75,6 @@ public class ItemUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
                 {
                     selectedItem.text.text = "";
                 }
-
                 clickedSlot.UpdateItem(clone);
                 clickedSlot.amount = cloneAmount;
                 if (clickedSlot.amount != 1)
@@ -92,7 +88,6 @@ public class ItemUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
             }
             else
             {
-                enterAmount.EnterIntAmount();
                 selectedItem.amount = clickedSlot.amount;
                 if (selectedItem.amount != 1)
                 {
